@@ -12,11 +12,14 @@ class Piece: UIView {
 
     var lastLocation:CGPoint = CGPointMake(0, 0)
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         let panRecognizer = UIPanGestureRecognizer(target:self, action:#selector(Piece.detectPan(_:)))
         self.gestureRecognizers = [panRecognizer]
         self.backgroundColor = UIColor.purpleColor()
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     
@@ -32,11 +35,17 @@ class Piece: UIView {
         //self.center = CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y)
         
         // Figure out where the user is trying to drag the view.
-        let newCenter:CGPoint = CGPointMake(lastLocation.x,
+        var newCenter:CGPoint = CGPointMake(lastLocation.x,
                                         self.center.y + translation.y);
         
+        print(newCenter.y)
         // See if the new position is in bounds.
-        if (newCenter.y >= 160 && newCenter.y <= 300) {
+        if (newCenter.y >= lastLocation.y-50 && newCenter.y <= lastLocation.y+50) {
+            if newCenter.y > lastLocation.y {
+                newCenter.y = lastLocation.y + 50
+            } else {
+                newCenter.y = lastLocation.y - 50
+            }
             self.center = newCenter;
             recognizer .setTranslation(CGPointZero, inView: self)
         }
