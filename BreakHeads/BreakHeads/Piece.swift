@@ -12,24 +12,13 @@ class Piece: UIView {
 
     var lastLocation:CGPoint = CGPointMake(0, 0)
     let contants = Constants()
-    var pieces_array:[Piece?]
-    
+    var pieces_array:[Piece] = []
     
     //****************************************************************
     // BUILD
     //****************************************************************
     
-    /*override init(frame: CGRect) {
-        super.init(frame: frame)
-        //pieces_array = []
-        self.backgroundColor = UIColor.purpleColor()
-        self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor.blackColor().CGColor
-        fourDirectionsGesture()
-    }*/
-    
-    init(frame:CGRect, arrayPieces:[Piece?]) {
-        pieces_array = arrayPieces
+    override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.purpleColor()
         self.layer.borderWidth = 0.5
@@ -82,36 +71,37 @@ class Piece: UIView {
             case UISwipeGestureRecognizerDirection.Right:
                 //print("Swiped right")
                 newLocation = CGPoint(x: lastLocation.x + contants.boxSize, y: lastLocation.y)
-                
-                if takenPlace(newLocation) {
-                    self.center.x = lastLocation.x + contants.boxSize
-                }
-                
-                
-                
+                self.center.x = (takenPlace(newLocation)) ? lastLocation.x + contants.boxSize : lastLocation.x
             case UISwipeGestureRecognizerDirection.Down:
                 //print("Swiped down")
-                self.center.y = lastLocation.y + contants.boxSize
+                newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y + contants.boxSize)
+                self.center.y = (takenPlace(newLocation)) ? lastLocation.y + contants.boxSize : lastLocation.y
             case UISwipeGestureRecognizerDirection.Left:
                 //print("Swiped left")
-                self.center.x = lastLocation.x - contants.boxSize
+                newLocation = CGPoint(x: lastLocation.x - contants.boxSize, y: lastLocation.y)
+                self.center.x = (takenPlace(newLocation)) ? lastLocation.x - contants.boxSize : lastLocation.x
             case UISwipeGestureRecognizerDirection.Up:
                 //print("Swiped up")
-                self.center.y = lastLocation.y - contants.boxSize
+                newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y - contants.boxSize)
+                self.center.y = (takenPlace(newLocation)) ? lastLocation.y - contants.boxSize : lastLocation.y
+                
             default:
                 break
             }
         }
     }
     
+    //Check if there are an other Piece in this position --------------
     func takenPlace(futureCenter: CGPoint) -> Bool {
         var canMove = false
         for piece in pieces_array {
-            canMove = (futureCenter.x == piece!.center.x) ? false : true
-            print("Futura center \(futureCenter.x)")
-            print("En la pieza \(piece!.center.x)")
+            if futureCenter == piece.center {
+                canMove = false
+                break
+            } else {
+                canMove = true
+            }
         }
-        print(canMove)
         return canMove
     }
     
