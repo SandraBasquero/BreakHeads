@@ -13,6 +13,7 @@ class Player: UIViewController {
     //Variables
     @IBOutlet weak var contentPieces: UIView!
     let contants = Constants()
+    var piecesArray = [Piece?](count:3 , repeatedValue:nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +34,21 @@ class Player: UIViewController {
         var pointY:CGFloat = 0
         
         // Add the Views
-        for _ in 1...contants.numOfPieces {
+       /* for _ in 1...contants.numOfPieces {
             pointX = pointX + contants.boxSize
             let newPiece = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize, contants.boxSize))
             self.contentPieces.addSubview(newPiece)
-        }
+            piecesArray.append(newPiece)
+        }*/
         
+        for i in 0...piecesArray.count-1 {
+            pointX = pointX + contants.boxSize
+            piecesArray[i] = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize, contants.boxSize), arrayPieces:piecesArray)
+            self.contentPieces.addSubview(piecesArray[i]!)
+        }
+        print(piecesArray)
     }
+    
     
     
     //Navigation -------------------------------------------
