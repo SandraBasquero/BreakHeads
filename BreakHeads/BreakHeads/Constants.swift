@@ -11,6 +11,7 @@ import UIKit
 
 class Constants {
 
-    let boxSize:CGFloat = 50 //square box size
+    var boxSize:CGFloat = 50 //square box size
+    var numOfPieces = 3 //number of piece in the puzzle
 }
 

@@ -12,15 +12,13 @@ class Player: UIViewController {
     
     //Variables
     @IBOutlet weak var contentPieces: UIView!
-    //let contants = Constants()
+    let contants = Constants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.backgroundColor = UIColor.blueColor()
         fillContentPieces()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,26 +28,17 @@ class Player: UIViewController {
     
     
     //Render puzzle ---------------------------------------
-    func fillContentPieces(){
-      /*  let littleBox = UIView(frame: CGRectMake(0, 0, 80, 80))
-        littleBox.backgroundColor = UIColor.greenColor()
-        self.contentPieces.addSubview(littleBox)*/
-        
-        
-        
-     //   let halfSizeOfView = 25.0
-        let maxViews = 2
-       // let insetSize = CGRectInset(self.view.bounds, CGFloat(Int(2 * halfSizeOfView)), CGFloat(Int(2 * halfSizeOfView))).size
-        
+    func fillContentPieces() {
         var pointX:CGFloat = 0
         var pointY:CGFloat = 0
         
         // Add the Views
-        for i in 0..<maxViews {
-            pointX = pointX+50
-            var newView = Piece(frame: CGRectMake(pointX, pointY, 50, 50))
-            self.contentPieces.addSubview(newView)
+        for _ in 1...contants.numOfPieces {
+            pointX = pointX + contants.boxSize
+            let newPiece = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize, contants.boxSize))
+            self.contentPieces.addSubview(newPiece)
         }
+        
     }
     
     

@@ -11,15 +11,19 @@ import UIKit
 class Piece: UIView {
 
     var lastLocation:CGPoint = CGPointMake(0, 0)
+    let contants = Constants()
     
+    
+    //****************************************************************
+    // BUILD
+    //****************************************************************
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let panRecognizer = UIPanGestureRecognizer(target:self, action:#selector(Piece.detectPan(_:)))
-        self.gestureRecognizers = [panRecognizer]
         self.backgroundColor = UIColor.purpleColor()
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor.blackColor().CGColor
+        fourDirectionsGesture()
     }
     
     
@@ -27,36 +31,58 @@ class Piece: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //Detect and move piece ---------------------------------
-    func detectPan(recognizer:UIPanGestureRecognizer) {
-        let translation  = recognizer.translationInView(self.superview!)
-        print("Moving... " + String(translation))
-        print("Last location: " + String(lastLocation))
-        //self.center = CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y)
-        
-        // Figure out where the user is trying to drag the view.
-        var newCenter:CGPoint = CGPointMake(lastLocation.x,
-                                        self.center.y + translation.y);
-        
-        print(newCenter.y)
-        // See if the new position is in bounds.
-        if (newCenter.y >= lastLocation.y-50 && newCenter.y <= lastLocation.y+50) {
-            if newCenter.y > lastLocation.y {
-                newCenter.y = lastLocation.y + 50
-            } else {
-                newCenter.y = lastLocation.y - 50
-            }
-            self.center = newCenter;
-            recognizer .setTranslation(CGPointZero, inView: self)
-        }
-    }
     
+    //****************************************************************
+    // SWIPE MOVEMENTS
+    //****************************************************************
     
+    //Update Piece last location --------------
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         // Promote the touched view
         self.superview?.bringSubviewToFront(self)
-        
         // Remember original location
         lastLocation = self.center
     }
+    
+    //Build and add to view gesture recognizer, the four directions --------------
+    func fourDirectionsGesture() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.addGestureRecognizer(swipeLeft)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.addGestureRecognizer(swipeDown)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        self.addGestureRecognizer(swipeUp)
+    }
+    
+    //Move in all 4 directions --------------
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Right:
+                //print("Swiped right")
+                self.center.x = lastLocation.x + contants.boxSize
+            case UISwipeGestureRecognizerDirection.Down:
+                //print("Swiped down")
+                self.center.y = lastLocation.y + contants.boxSize
+            case UISwipeGestureRecognizerDirection.Left:
+                //print("Swiped left")
+                self.center.x = lastLocation.x - contants.boxSize
+            case UISwipeGestureRecognizerDirection.Up:
+                //print("Swiped up")
+                self.center.y = lastLocation.y - contants.boxSize
+            default:
+                break
+            }
+        }
+    }
+    
 }
