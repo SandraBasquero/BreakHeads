@@ -17,8 +17,6 @@ class Player: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         fillContentPieces()
     }
     
@@ -35,11 +33,10 @@ class Player: UIViewController {
         
         // Add the Views
         for _ in 1...contants.numOfPieces {
-            pointX = pointX + contants.boxSize
-            let newPiece = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize, contants.boxSize))
+            let newPiece = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize(), contants.boxSize()))
             self.contentPieces.addSubview(newPiece)
             piecesArray.append(newPiece)
-            
+            pointX = pointX + contants.boxSize()
         }
         //Fill the pieces array of each piece
         for piece in piecesArray {

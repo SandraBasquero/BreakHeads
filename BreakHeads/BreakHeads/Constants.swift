@@ -11,7 +11,14 @@ import UIKit
 
 class Constants {
 
-    var boxSize:CGFloat = 90 //square box size
-    var numOfPieces = 3 //number of piece in the puzzle
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    var numOfPieces = 4 //number of piece in the puzzle
+    
+    
+    func boxSize() -> CGFloat {
+        var box:CGFloat = 0 //square box size
+        box = screenSize.width / CGFloat(numOfPieces)
+        return round(box)
+    }
 }
 
