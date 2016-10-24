@@ -84,7 +84,6 @@ class Piece: UIView {
                 //print("Swiped up")
                 newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y - contants.boxSize())
                 self.center.y = (takenPlace(newLocation)) ? lastLocation.y - contants.boxSize() : lastLocation.y
-                
             default:
                 break
             }

@@ -14,6 +14,8 @@ class Player: UIViewController {
     @IBOutlet weak var contentPieces: UIView!
     let contants = Constants()
     var piecesArray:[Piece] = []
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    var tempWidth:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,19 @@ class Player: UIViewController {
         var pointY:CGFloat = 0
         
         // Add the Views
-        for _ in 1...contants.numOfPieces {
+        for _ in 1...contants.numOfPiecesMedium {
             let newPiece = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize(), contants.boxSize()))
             self.contentPieces.addSubview(newPiece)
             piecesArray.append(newPiece)
             pointX = pointX + contants.boxSize()
+            tempWidth = tempWidth + contants.boxSize()
+            //Reset values in each new row
+            if tempWidth >= screenSize.width {
+                pointY = pointY + contants.boxSize()
+                tempWidth = 0
+                pointX = 0
+                tempWidth = 0
+            }
         }
         //Fill the pieces array of each piece
         for piece in piecesArray {
