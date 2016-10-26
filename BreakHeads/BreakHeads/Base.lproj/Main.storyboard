@@ -43,8 +43,38 @@
                                 <color key="backgroundColor" red="1" green="0.94339675339999995" blue="0.73748511880000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="^_^"/>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYD-yF-Yuo">
+                                <rect key="frame" x="78" y="64" width="165" height="30"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.84313725490000002" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Hard">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="2yw-D8-4l7" kind="show" id="Qhy-J5-Bo0"/>
+                                    <action selector="levelSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1aT-QY-bN1"/>
+                                    <segue destination="2yw-D8-4l7" kind="show" id="GYK-gM-hOd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-t1-QK4">
+                                <rect key="frame" x="78" y="166" width="165" height="30"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.84313725490000002" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Easy">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="levelSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mhd-Mc-FIc"/>
+                                    <segue destination="2yw-D8-4l7" kind="show" id="3jm-gp-lSW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-VZ-ZAo">
+                                <rect key="frame" x="78" y="115" width="165" height="30"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.84313725490000002" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Medium">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="levelSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xXJ-VO-uiN"/>
+                                    <segue destination="2yw-D8-4l7" kind="show" id="H52-Ol-Boi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="511.5" y="386.5"/>
+            <point key="canvasLocation" x="511" y="386"/>
         </scene>
         <!--Player-->
         <scene sceneID="Ah6-RC-Dcr">
@@ -113,4 +143,7 @@
             <point key="canvasLocation" x="1010" y="386"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="H52-Ol-Boi"/>
+    </inferredMetricsTieBreakers>
 </document>

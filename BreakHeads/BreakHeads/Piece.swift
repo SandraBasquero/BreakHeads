@@ -11,7 +11,7 @@ import UIKit
 class Piece: UIView {
 
     var lastLocation:CGPoint = CGPointMake(0, 0)
-    let contants = Constants()
+    //let contants = Constants()
     var pieces_array:[Piece] = []
     
     //****************************************************************
@@ -70,20 +70,20 @@ class Piece: UIView {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
                 //print("Swiped right")
-                newLocation = CGPoint(x: lastLocation.x + contants.boxSize(), y: lastLocation.y)
-                self.center.x = (takenPlace(newLocation)) ? lastLocation.x + contants.boxSize() : lastLocation.x
+                newLocation = CGPoint(x: lastLocation.x + Constants.sharer.boxSize(), y: lastLocation.y)
+                self.center.x = (takenPlace(newLocation)) ? lastLocation.x + Constants.sharer.boxSize() : lastLocation.x
             case UISwipeGestureRecognizerDirection.Down:
                 //print("Swiped down")
-                newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y + contants.boxSize())
-                self.center.y = (takenPlace(newLocation)) ? lastLocation.y + contants.boxSize() : lastLocation.y
+                newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y + Constants.sharer.boxSize())
+                self.center.y = (takenPlace(newLocation)) ? lastLocation.y + Constants.sharer.boxSize() : lastLocation.y
             case UISwipeGestureRecognizerDirection.Left:
                 //print("Swiped left")
-                newLocation = CGPoint(x: lastLocation.x - contants.boxSize(), y: lastLocation.y)
-                self.center.x = (takenPlace(newLocation)) ? lastLocation.x - contants.boxSize() : lastLocation.x
+                newLocation = CGPoint(x: lastLocation.x - Constants.sharer.boxSize(), y: lastLocation.y)
+                self.center.x = (takenPlace(newLocation)) ? lastLocation.x - Constants.sharer.boxSize() : lastLocation.x
             case UISwipeGestureRecognizerDirection.Up:
                 //print("Swiped up")
-                newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y - contants.boxSize())
-                self.center.y = (takenPlace(newLocation)) ? lastLocation.y - contants.boxSize() : lastLocation.y
+                newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y - Constants.sharer.boxSize())
+                self.center.y = (takenPlace(newLocation)) ? lastLocation.y - Constants.sharer.boxSize() : lastLocation.y
             default:
                 break
             }

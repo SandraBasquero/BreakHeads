@@ -12,7 +12,7 @@ class Player: UIViewController {
     
     //Variables
     @IBOutlet weak var contentPieces: UIView!
-    let contants = Constants()
+    let numOfPiecesPuzzle = Constants.sharer.numOfPieces
     var piecesArray:[Piece] = []
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     var tempWidth:CGFloat = 0
@@ -34,15 +34,15 @@ class Player: UIViewController {
         var pointY:CGFloat = 0
         
         // Add the Views
-        for _ in 1...contants.numOfPiecesMedium {
-            let newPiece = Piece(frame: CGRectMake(pointX, pointY, contants.boxSize(), contants.boxSize()))
+        for _ in 1...numOfPiecesPuzzle {
+            let newPiece = Piece(frame: CGRectMake(pointX, pointY, Constants.sharer.boxSize(), Constants.sharer.boxSize()))
             self.contentPieces.addSubview(newPiece)
             piecesArray.append(newPiece)
-            pointX = pointX + contants.boxSize()
-            tempWidth = tempWidth + contants.boxSize()
+            pointX = pointX + Constants.sharer.boxSize()
+            tempWidth = tempWidth + Constants.sharer.boxSize()
             //Reset values in each new row
             if tempWidth >= screenSize.width {
-                pointY = pointY + contants.boxSize()
+                pointY = pointY + Constants.sharer.boxSize()
                 tempWidth = 0
                 pointX = 0
                 tempWidth = 0
