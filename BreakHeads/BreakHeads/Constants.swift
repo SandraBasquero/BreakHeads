@@ -15,7 +15,7 @@ class Constants {
     
     //Singleton
     static var sharer = Constants()
-    private init() {}
+    private init() {} //This prevents others from using the default '()' initializer for this class.
     var numOfPieces:Int = 0
     
     
