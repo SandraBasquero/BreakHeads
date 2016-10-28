@@ -73,54 +73,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BreakHeads/Player.swift"
-            timestampString = "499201053.995647"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "Player"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BreakHeads.Player.numOfPiecesPuzzle.getter : Swift.Int"
-                  moduleName = "BreakHeads"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandra/Documents/Proyectos/BreakHeads/BreakHeads/BreakHeads/Player.swift"
-                  timestampString = "499201112.996005"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BreakHeads.Player.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;BreakHeads.Player&gt;"
-                  moduleName = "BreakHeads"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandra/Documents/Proyectos/BreakHeads/BreakHeads/BreakHeads/Player.swift"
-                  timestampString = "499201112.996411"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "76">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "BreakHeads/Constants.swift"
             timestampString = "499202500.914918"
             startingColumnNumber = "9223372036854775807"
@@ -138,12 +90,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BreakHeads/Home.swift"
-            timestampString = "499201091.571524"
+            timestampString = "499362864.578213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "levelSelection(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BreakHeads/Player.swift"
+            timestampString = "499369585.306187"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "fillContentPieces()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

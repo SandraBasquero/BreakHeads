@@ -16,12 +16,12 @@ class Constants {
     //Singleton
     static var sharer = Constants()
     private init() {} //This prevents others from using the default '()' initializer for this class.
-    var numOfPieces:Int = 0
+    var numOfPiecesPerRow:Int = 0
     
     
     func boxSize() -> CGFloat {
         var box:CGFloat = 0 //square box size
-        box = screenSize.width / CGFloat(sqrt(CGFloat(numOfPieces))) //pieces in a row
+        box = screenSize.width / CGFloat(numOfPiecesPerRow) //pieces in a row
         return round(box)
     }
 

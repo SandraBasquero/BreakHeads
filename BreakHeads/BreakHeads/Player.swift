@@ -12,7 +12,8 @@ class Player: UIViewController {
     
     //Variables
     @IBOutlet weak var contentPieces: UIView!
-    let numOfPiecesPuzzle = Constants.sharer.numOfPieces
+    let numOfPiecesInRow = Constants.sharer.numOfPiecesPerRow
+    let pieceSize = Constants.sharer.boxSize()
     var piecesArray:[Piece] = []
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     var tempWidth:CGFloat = 0
@@ -32,22 +33,33 @@ class Player: UIViewController {
     func fillContentPieces() {
         var pointX:CGFloat = 0
         var pointY:CGFloat = 0
+        var counter = 1;
         
-        // Add the Views
-        for _ in 1...numOfPiecesPuzzle {
-            let newPiece = Piece(frame: CGRectMake(pointX, pointY, Constants.sharer.boxSize(), Constants.sharer.boxSize()))
-            self.contentPieces.addSubview(newPiece)
-            piecesArray.append(newPiece)
-            pointX = pointX + Constants.sharer.boxSize()
-            tempWidth = tempWidth + Constants.sharer.boxSize()
-            //Reset values in each new row
-            if tempWidth >= screenSize.width {
-                pointY = pointY + Constants.sharer.boxSize()
-                tempWidth = 0
-                pointX = 0
-                tempWidth = 0
+        //Adding news rows
+        while pointY+pieceSize <= (screenSize.height-60) {  //TODO: replace 60!
+            //Filling each row with Pieces
+            for _ in 1...numOfPiecesInRow {
+                let newPiece = Piece(frame: CGRectMake(pointX, pointY, pieceSize, pieceSize))
+                newPiece.tag = counter
+                counter = counter + 1
+                self.contentPieces.addSubview(newPiece)
+                piecesArray.append(newPiece)
+                pointX = pointX + pieceSize
+                tempWidth = tempWidth + pieceSize
+                //Reset values in each new row
+                if tempWidth >= screenSize.width {
+                    pointY = pointY + pieceSize
+                    tempWidth = 0
+                    pointX = 0
+                }
+
             }
         }
+        
+        //Delete the last Piece in Puzzle in order to can move the others
+        piecesArray.removeLast()
+        self.contentPieces.subviews[self.contentPieces.subviews.count - 1].removeFromSuperview()
+        
         //Fill the pieces array of each piece
         for piece in piecesArray {
             piece.pieces_array = piecesArray
