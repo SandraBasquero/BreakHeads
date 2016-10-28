@@ -56,6 +56,19 @@ class Player: UIViewController {
             }
         }
         
+        //Working hereeee ....
+        self.contentPieces.backgroundColor = UIColor.redColor()
+        
+        print(self.contentPieces.frame.size.height)
+        print(screenSize.height-60)
+        print(pointY)
+        self.contentPieces.frame = CGRectMake(self.contentPieces.frame.size.width, pointY, self.contentPieces.frame.origin.x, self.contentPieces.frame.origin.y)
+        print("Y ahora queee? ")
+        print(self.contentPieces.frame.size.height)
+        //Working hereeee ....
+        
+        
+        
         //Delete the last Piece in Puzzle in order to can move the others
         piecesArray.removeLast()
         self.contentPieces.subviews[self.contentPieces.subviews.count - 1].removeFromSuperview()
