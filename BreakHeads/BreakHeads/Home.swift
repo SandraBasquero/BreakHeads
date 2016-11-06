@@ -25,11 +25,11 @@ class Home: UIViewController {
     @IBAction func levelSelection(sender: UIButton) {
         switch sender.tag {
         case 1:
-            Constants.sharer.numOfPiecesPerRow = 3
+            Constants.sharer.numOfPiecesPerRow = 2
         case 2:
-            Constants.sharer.numOfPiecesPerRow = 4
+            Constants.sharer.numOfPiecesPerRow = 3
         case 3:
-            Constants.sharer.numOfPiecesPerRow = 5
+            Constants.sharer.numOfPiecesPerRow = 4
         default:
             Constants.sharer.numOfPiecesPerRow = 0
         }
