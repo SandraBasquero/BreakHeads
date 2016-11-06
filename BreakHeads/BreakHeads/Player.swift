@@ -33,7 +33,9 @@ class Player: UIViewController {
     // RENDERING THE PUZZLE
     //****************************************************************
     
-    //Render pieces ---------------------------------------
+    //-----------------------------------------------------
+    //Render pieces
+    //-----------------------------------------------------
     func fillContentPieces() {
         var pointX:CGFloat = 0
         var pointY:CGFloat = 0
@@ -48,7 +50,7 @@ class Player: UIViewController {
                 counter = counter+1
                 self.contentPieces.addSubview(newPiece)
                 piecesArray.append(newPiece)
-                //fillingEachPiece(newPiece)
+                fillingEachPiece(newPiece)
                 pointX = pointX + pieceSize
                 tempWidth = tempWidth + pieceSize
                 //Reset values in each new row
@@ -64,8 +66,9 @@ class Player: UIViewController {
         piecesArray.removeLast()
         self.contentPieces.subviews[self.contentPieces.subviews.count - 1].removeFromSuperview()
         
-        //Bound bottom pieces
-        bottomPiecesBound(pointX, bottomY:pointY)
+        //Bounding top and bottom pieces
+        topPiecesBound()
+        bottomPiecesBound(pointY)
         
         //Fill the pieces array of each piece
         for piece in piecesArray {
@@ -73,10 +76,29 @@ class Player: UIViewController {
         }
     }
     
+    //-----------------------------------------------------
+    //Render a top line of pieces to limit up movements
+    //-----------------------------------------------------
+    func topPiecesBound() {
+        var topX:CGFloat = 0
+        for _ in 1...numOfPiecesInRow {
+            let newPiece = Piece(frame: CGRectMake(topX, 0 - pieceSize, pieceSize, pieceSize))
+            self.contentPieces.addSubview(newPiece)
+            piecesArray.append(newPiece)
+            topX = topX + pieceSize
+            //Avoid to move those top pieces
+            newPiece.gestureRecognizers?.forEach(newPiece.removeGestureRecognizer)
+            //Make them invisibles
+            newPiece.backgroundColor = UIColor.clearColor()
+            newPiece.layer.borderWidth = 0
+        }
+    }
     
-    //Render a last bottom line of pieces to limit down movements --------------
-    func bottomPiecesBound(pointX:CGFloat, bottomY:CGFloat) {
-        var bottomX = pointX
+    //-----------------------------------------------------
+    //Render a last bottom line of pieces to limit down movements
+    //-----------------------------------------------------
+    func bottomPiecesBound(bottomY:CGFloat) {
+        var bottomX:CGFloat = 0
         for _ in 1...numOfPiecesInRow {
             let newPiece = Piece(frame: CGRectMake(bottomX, bottomY, pieceSize, pieceSize))
             self.contentPieces.addSubview(newPiece)
@@ -89,13 +111,16 @@ class Player: UIViewController {
             newPiece.layer.borderWidth = 0
         }
     }
+
     
-    /*func fillingEachPiece(piece:UIView) {
-        let labelText = UILabel(frame: CGRectMake(piece.frame.origin.x, piece.frame.origin.y, piece.frame.size.width, piece.frame.size.height))
-        labelText.backgroundColor = UIColor.brownColor()
+    func fillingEachPiece(piece:UIView) {
+        let labelText = UILabel(frame: CGRectMake(0, 0, piece.frame.size.width, piece.frame.size.height))
+        labelText.backgroundColor = UIColor.orangeColor()
         labelText.text = String(piece.tag)
+        labelText.textAlignment = NSTextAlignment.Center
         piece.addSubview(labelText)
-    }*/
+    }
+    
     
     //****************************************************************
     // NAVIGATION
