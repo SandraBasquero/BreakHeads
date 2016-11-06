@@ -76,6 +76,7 @@ class Player: UIViewController {
         }
     }
     
+    
     //-----------------------------------------------------
     //Render a top line of pieces to limit up movements
     //-----------------------------------------------------
