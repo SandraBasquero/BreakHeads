@@ -15,7 +15,7 @@ class Player: UIViewController {
     let numOfPiecesInRow = Constants.sharer.numOfPiecesPerRow
     let pieceSize = Constants.sharer.boxSize()
     var piecesArray:[Piece] = []
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    let screenSize: CGRect = UIScreen.main.bounds
     var tempWidth:CGFloat = 0
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class Player: UIViewController {
         while pointY + pieceSize <= (screenSize.height-60) {  //TODO: replace 60!
             //Filling each row with Pieces
             for _ in 1...numOfPiecesInRow {
-                let newPiece = Piece(frame: CGRectMake(pointX, pointY, pieceSize, pieceSize))
+                let newPiece = Piece(frame: CGRect(x: pointX, y: pointY, width: pieceSize, height: pieceSize))
                 newPiece.tag = counter
                 counter = counter+1
                 self.contentPieces.addSubview(newPiece)
@@ -83,14 +83,14 @@ class Player: UIViewController {
     func topPiecesBound() {
         var topX:CGFloat = 0
         for _ in 1...numOfPiecesInRow {
-            let newPiece = Piece(frame: CGRectMake(topX, 0 - pieceSize, pieceSize, pieceSize))
+            let newPiece = Piece(frame: CGRect(x: topX, y: 0 - pieceSize, width: pieceSize, height: pieceSize))
             self.contentPieces.addSubview(newPiece)
             piecesArray.append(newPiece)
             topX = topX + pieceSize
             //Avoid to move those top pieces
             newPiece.gestureRecognizers?.forEach(newPiece.removeGestureRecognizer)
             //Make them invisibles
-            newPiece.backgroundColor = UIColor.clearColor()
+            newPiece.backgroundColor = UIColor.clear
             newPiece.layer.borderWidth = 0
         }
     }
@@ -98,27 +98,27 @@ class Player: UIViewController {
     //-----------------------------------------------------
     //Render a last bottom line of pieces to limit down movements
     //-----------------------------------------------------
-    func bottomPiecesBound(bottomY:CGFloat) {
+    func bottomPiecesBound(_ bottomY:CGFloat) {
         var bottomX:CGFloat = 0
         for _ in 1...numOfPiecesInRow {
-            let newPiece = Piece(frame: CGRectMake(bottomX, bottomY, pieceSize, pieceSize))
+            let newPiece = Piece(frame: CGRect(x: bottomX, y: bottomY, width: pieceSize, height: pieceSize))
             self.contentPieces.addSubview(newPiece)
             piecesArray.append(newPiece)
             bottomX = bottomX + pieceSize
             //Avoid to move those last pieces
             newPiece.gestureRecognizers?.forEach(newPiece.removeGestureRecognizer)
             //Make them invisibles
-            newPiece.backgroundColor = UIColor.clearColor()
+            newPiece.backgroundColor = UIColor.clear
             newPiece.layer.borderWidth = 0
         }
     }
 
     
-    func fillingEachPiece(piece:UIView) {
-        let labelText = UILabel(frame: CGRectMake(0, 0, piece.frame.size.width, piece.frame.size.height))
-        labelText.backgroundColor = UIColor.orangeColor()
+    func fillingEachPiece(_ piece:UIView) {
+        let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: piece.frame.size.width, height: piece.frame.size.height))
+        labelText.backgroundColor = UIColor.orange
         labelText.text = String(piece.tag)
-        labelText.textAlignment = NSTextAlignment.Center
+        labelText.textAlignment = NSTextAlignment.center
         piece.addSubview(labelText)
     }
     
@@ -127,8 +127,8 @@ class Player: UIViewController {
     // NAVIGATION
     //****************************************************************
     
-    @IBAction func backHome(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backHome(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

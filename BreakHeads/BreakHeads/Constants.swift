@@ -11,11 +11,11 @@ import UIKit
 
 class Constants {
 
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    let screenSize: CGRect = UIScreen.main.bounds
     
     //Singleton
     static var sharer = Constants()
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
     var numOfPiecesPerRow:Int = 0
     
     

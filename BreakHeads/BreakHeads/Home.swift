@@ -22,7 +22,7 @@ class Home: UIViewController {
     }
     
 
-    @IBAction func levelSelection(sender: UIButton) {
+    @IBAction func levelSelection(_ sender: UIButton) {
         switch sender.tag {
         case 1:
             Constants.sharer.numOfPiecesPerRow = 2

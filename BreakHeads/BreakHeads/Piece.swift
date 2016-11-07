@@ -10,7 +10,7 @@ import UIKit
 
 class Piece: UIView {
 
-    var lastLocation:CGPoint = CGPointMake(0, 0)
+    var lastLocation:CGPoint = CGPoint(x: 0, y: 0)
     //let contants = Constants()
     var pieces_array:[Piece] = []
     
@@ -20,9 +20,9 @@ class Piece: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.purpleColor()
+        self.backgroundColor = UIColor.purple
         self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor.blackColor().CGColor
+        self.layer.borderColor = UIColor.black.cgColor
         fourDirectionsGesture()
     }
     
@@ -36,9 +36,9 @@ class Piece: UIView {
     //****************************************************************
     
     //Update Piece last location --------------
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         // Promote the touched view
-        self.superview?.bringSubviewToFront(self)
+        self.superview?.bringSubview(toFront: self)
         // Remember original location
         lastLocation = self.center
     }
@@ -46,41 +46,41 @@ class Piece: UIView {
     //Build and add to view gesture recognizer, the four directions --------------
     func fourDirectionsGesture() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.addGestureRecognizer(swipeRight)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.addGestureRecognizer(swipeLeft)
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
-        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
         self.addGestureRecognizer(swipeDown)
         
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(Piece.respondToSwipeGesture(_:)))
-        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
         self.addGestureRecognizer(swipeUp)
     }
     
     //Move in all 4 directions --------------
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+    func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
         var newLocation:CGPoint = CGPoint(x: 0,y: 0)
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
+            case UISwipeGestureRecognizerDirection.right:
                 //print("Swiped right")
                 newLocation = CGPoint(x: lastLocation.x + Constants.sharer.boxSize(), y: lastLocation.y)
                 self.center.x = (takenPlace(newLocation)) ? lastLocation.x + Constants.sharer.boxSize() : lastLocation.x
-            case UISwipeGestureRecognizerDirection.Down:
+            case UISwipeGestureRecognizerDirection.down:
                 //print("Swiped down")
                 newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y + Constants.sharer.boxSize())
                 self.center.y = (takenPlace(newLocation)) ? lastLocation.y + Constants.sharer.boxSize() : lastLocation.y
-            case UISwipeGestureRecognizerDirection.Left:
+            case UISwipeGestureRecognizerDirection.left:
                 //print("Swiped left")
                 newLocation = CGPoint(x: lastLocation.x - Constants.sharer.boxSize(), y: lastLocation.y)
                 self.center.x = (takenPlace(newLocation)) ? lastLocation.x - Constants.sharer.boxSize() : lastLocation.x
-            case UISwipeGestureRecognizerDirection.Up:
+            case UISwipeGestureRecognizerDirection.up:
                 //print("Swiped up")
                 newLocation = CGPoint(x: lastLocation.x, y: lastLocation.y - Constants.sharer.boxSize())
                 self.center.y = (takenPlace(newLocation)) ? lastLocation.y - Constants.sharer.boxSize() : lastLocation.y
@@ -91,7 +91,7 @@ class Piece: UIView {
     }
     
     //Check if there are an other Piece in this position --------------
-    func takenPlace(futureCenter: CGPoint) -> Bool {
+    func takenPlace(_ futureCenter: CGPoint) -> Bool {
         var canMove = false
         for piece in pieces_array {
             //print("Nuevo: \(futureCenter) - Lugar: \(piece.center)")
