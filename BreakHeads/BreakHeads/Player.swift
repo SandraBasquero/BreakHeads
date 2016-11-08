@@ -12,7 +12,7 @@ extension Array {
     /** Randomizes the order of an array's elements. */
     mutating func shuffle() {
         for i in 0..<6 {
-            print(i)
+            //print(i)
             sort { (_,_) in arc4random() < arc4random() }
         }
     }
@@ -138,24 +138,22 @@ class Player: UIViewController {
     //****************************************************************
     
     @IBAction func mixPieces(_ sender: UIButton) {
-        print("mixiiiing")
+        var centers:[CGPoint] = []
+        //Save the current center of the pieces
+        for piece in piecesArray {
+            if piece.tag != 0 {
+                centers.append(piece.center)
+            }
+        }
+        //Mix the center of the pieces
+        centers.shuffle()
         
-        piecesArray.shuffle()
-        
-        var pointX:CGFloat = 0
-        var pointY:CGFloat = 0
-        
-        while pointY + pieceSize <= (screenSize.height-60) {  //TODO: replace 60!
-            //Filling each row with Pieces
-            for _ in 1...piecesArray.count {
-                pointX = pointX + pieceSize
-                tempWidth = tempWidth + pieceSize
-                //Reset values in each new row
-                if tempWidth >= screenSize.width {
-                    pointY = pointY + pieceSize
-                    tempWidth = 0
-                    pointX = 0
-                }
+        //Set new center to each piece
+        var counter = 0
+        for piece in piecesArray {
+            if piece.tag != 0 {
+                piece.center = centers[counter]
+                counter = counter+1
             }
         }
     }
