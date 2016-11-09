@@ -11,7 +11,7 @@ import UIKit
 extension Array {
     /** Randomizes the order of an array's elements. */
     mutating func shuffle() {
-        for i in 0..<6 {
+        for _ in 0..<6 {
             //print(i)
             sort { (_,_) in arc4random() < arc4random() }
         }
