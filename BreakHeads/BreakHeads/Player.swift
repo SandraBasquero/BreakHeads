@@ -27,6 +27,8 @@ class Player: UIViewController {
     var piecesArray:[Piece] = []
     let screenSize: CGRect = UIScreen.main.bounds
     var tempWidth:CGFloat = 0
+    var correctCenters:[CGPoint] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,7 @@ class Player: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
     //****************************************************************
@@ -60,6 +63,7 @@ class Player: UIViewController {
                 counter = counter+1
                 self.contentPieces.addSubview(newPiece)
                 piecesArray.append(newPiece)
+                correctCenters.append(newPiece.center)
                 fillingEachPiece(newPiece)
                 pointX = pointX + pieceSize
                 tempWidth = tempWidth + pieceSize
@@ -75,6 +79,7 @@ class Player: UIViewController {
         //Delete the last Piece in Puzzle in order to can move the others
         piecesArray.removeLast()
         self.contentPieces.subviews[self.contentPieces.subviews.count - 1].removeFromSuperview()
+        correctCenters.removeLast()
         
         //Bounding top and bottom pieces
         topPiecesBound()
@@ -123,7 +128,9 @@ class Player: UIViewController {
         }
     }
 
-    
+    //-----------------------------------------------------
+    //In each piece, its tag number
+    //-----------------------------------------------------
     func fillingEachPiece(_ piece:UIView) {
         let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: piece.frame.size.width, height: piece.frame.size.height))
         labelText.backgroundColor = UIColor.orange
@@ -158,6 +165,8 @@ class Player: UIViewController {
         }
     }
     
+    
+    
     //****************************************************************
     // NAVIGATION
     //****************************************************************
@@ -165,5 +174,6 @@ class Player: UIViewController {
     @IBAction func backHome(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     
 }
