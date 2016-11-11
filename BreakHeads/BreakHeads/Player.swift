@@ -28,7 +28,6 @@ class Player: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     var tempWidth:CGFloat = 0
     var correctCenters:[CGPoint] = []
-    var currentCenters:[CGPoint] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,6 +144,7 @@ class Player: UIViewController {
     //****************************************************************
     
     @IBAction func mixPieces(_ sender: UIButton) {
+        var currentCenters:[CGPoint] = []
         //Save the current center of the pieces
         for piece in piecesArray {
             if piece.tag != 0 {
@@ -165,14 +165,20 @@ class Player: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        print("nos movemos??")
-        var win:Bool?
+        //print("nos movemos??")
+        var win:Bool = false
+        var currentCenters:[CGPoint] = []
         
-        print("Correcto: \(correctCenters.count) - Actual: \(currentCenters.count)")
+        for piece in piecesArray {
+            if piece.tag != 0 {
+                print("pieza \(piece.tag) está en \(piece.center)")
+                currentCenters.append(piece.center)
+            }
+        }
         
         if currentCenters.count == correctCenters.count {
             for i in 0..<correctCenters.count {
-                print("Correcto: \(correctCenters[i]) - Actual: \(currentCenters[i])")
+                //print("Correcto: \(correctCenters[i]) - Actual: \(currentCenters[i])")
                 if correctCenters[i] == currentCenters[i] {
                     win = true
                 } else {
@@ -181,10 +187,29 @@ class Player: UIViewController {
                 }
             }
         }
-         print("YOU WIN? -> \(win)")
+        
+        if win {
+            print("jijijiji")
+            let alert = UIAlertController(title: "YOU WIN!!", message: "You're sooo smart!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "^_^", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            print("-----")
+        }
+    }
+    /*
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("FIIIIIIIIIIIIII")
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("mooooove")
+    }
     
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("cannncel")
+    }
+ */
     //****************************************************************
     // NAVIGATION
     //****************************************************************

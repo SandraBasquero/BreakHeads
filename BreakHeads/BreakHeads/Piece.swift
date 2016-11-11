@@ -46,12 +46,26 @@ class Piece: UIView {
         lastLocation = self.center
     }
     
-    
-    /*override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    /*
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Promote the touched view
         self.superview?.bringSubview(toFront: self)
+        
+        self.gestureRecognizers?.forEach(self.removeGestureRecognizer)
+        
         super.touchesEnded(touches, with: event) //allows detect pieces events from the superview
-    }*/
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.superview?.bringSubview(toFront: self)
+        super.touchesMoved(touches, with: event) //allows detect pieces events from the superview
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.superview?.bringSubview(toFront: self)
+        super.touchesMoved(touches, with: event) //allows detect pieces events from the superview
+    }
+ */
     
     //Build and add to view gesture recognizer, the four directions --------------
     func fourDirectionsGesture() {
@@ -106,7 +120,7 @@ class Piece: UIView {
         for piece in pieces_array {
             //print("Nuevo: \(futureCenter) - Lugar: \(piece.center)")
             if futureCenter == piece.center {
-                canMove = false
+                canMove = false //true  to test
                 break
             } else if futureCenter != piece.center {
                 canMove = true
