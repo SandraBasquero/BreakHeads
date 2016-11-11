@@ -28,7 +28,7 @@ class Player: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     var tempWidth:CGFloat = 0
     var correctCenters:[CGPoint] = []
-    
+    var currentCenters:[CGPoint] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,26 +145,44 @@ class Player: UIViewController {
     //****************************************************************
     
     @IBAction func mixPieces(_ sender: UIButton) {
-        var centers:[CGPoint] = []
         //Save the current center of the pieces
         for piece in piecesArray {
             if piece.tag != 0 {
-                centers.append(piece.center)
+                currentCenters.append(piece.center)
             }
         }
         //Mix the center of the pieces
-        centers.shuffle()
+        currentCenters.shuffle()
         
         //Set new center to each piece
         var counter = 0
         for piece in piecesArray {
             if piece.tag != 0 {
-                piece.center = centers[counter]
+                piece.center = currentCenters[counter]
                 counter = counter+1
             }
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        print("nos movemos??")
+        var win:Bool?
+        
+        print("Correcto: \(correctCenters.count) - Actual: \(currentCenters.count)")
+        
+        if currentCenters.count == correctCenters.count {
+            for i in 0..<correctCenters.count {
+                print("Correcto: \(correctCenters[i]) - Actual: \(currentCenters[i])")
+                if correctCenters[i] == currentCenters[i] {
+                    win = true
+                } else {
+                    win = false
+                    break
+                }
+            }
+        }
+         print("YOU WIN? -> \(win)")
+    }
     
     
     //****************************************************************
