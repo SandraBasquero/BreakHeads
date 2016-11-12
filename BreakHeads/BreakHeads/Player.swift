@@ -28,6 +28,7 @@ class Player: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     var tempWidth:CGFloat = 0
     var correctCenters:[CGPoint] = []
+    var mixed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class Player: UIViewController {
     
     
     //****************************************************************
-    // RENDERING THE PUZZLE
+    // MARK: - RENDERING THE PUZZLE
     //****************************************************************
     
     //-----------------------------------------------------
@@ -87,6 +88,8 @@ class Player: UIViewController {
         //Fill the pieces array of each piece
         for piece in piecesArray {
             piece.pieces_array = piecesArray
+            //Avoid pieces to move until they are mixed
+            piece.gestureRecognizers?.forEach(piece.removeGestureRecognizer)
         }
     }
     
@@ -140,7 +143,7 @@ class Player: UIViewController {
     
     
     //****************************************************************
-    // MIXING PIECES
+    // MARK: - MIXING PIECES
     //****************************************************************
     
     //-----------------------------------------------------
@@ -152,6 +155,7 @@ class Player: UIViewController {
         for piece in piecesArray {
             if piece.tag != 0 {
                 currentCenters.append(piece.center)
+                piece.fourDirectionsGesture() //Pieces can move now
             }
         }
         //Mix the center of the pieces
@@ -165,6 +169,7 @@ class Player: UIViewController {
                 counter = counter+1
             }
         }
+        mixed = true
     }
     
     //-----------------------------------------------------
@@ -192,17 +197,17 @@ class Player: UIViewController {
                 }
             }
         }
-        //If the sort is correct, show an alert
-        if win {
-            let alert = UIAlertController(title: "YOU WIN!!", message: "You're sooo smart!", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "^_^", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        //Show alerts
+        if mixed && win {
+            winMessage()
+        } else if !mixed && win {
+            mixerMessage()
         }
     }
     
  
     //****************************************************************
-    // NAVIGATION
+    // MARK: - NAVIGATION
     //****************************************************************
     
     @IBAction func backHome(_ sender: UIButton) {
@@ -210,4 +215,38 @@ class Player: UIViewController {
     }
     
     
+    
+    //****************************************************************
+    // MARK: - ALERT MESSAGES
+    //****************************************************************
+    
+    //-----------------------------------------------------
+    //Show a popup message when you win
+    //-----------------------------------------------------
+    func winMessage() {
+        let alert = UIAlertController(title: "YOU WIN!!", message: "You're sooo smart!", preferredStyle: UIAlertControllerStyle.alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    //-----------------------------------------------------
+    //Show a popup message to recall mixing the pieces before start
+    //-----------------------------------------------------
+    func mixerMessage() {
+        let alert = UIAlertController(title: "", message: "Mix the pieces to start the game", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 8
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
 }
