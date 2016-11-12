@@ -143,6 +143,9 @@ class Player: UIViewController {
     // MIXING PIECES
     //****************************************************************
     
+    //-----------------------------------------------------
+    //Change center pieces to change the sort
+    //-----------------------------------------------------
     @IBAction func mixPieces(_ sender: UIButton) {
         var currentCenters:[CGPoint] = []
         //Save the current center of the pieces
@@ -164,14 +167,16 @@ class Player: UIViewController {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        //print("nos movemos??")
+    //-----------------------------------------------------
+    //Check, everytime a piece moves, if the sort is correct
+    //-----------------------------------------------------
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         var win:Bool = false
         var currentCenters:[CGPoint] = []
         
         for piece in piecesArray {
             if piece.tag != 0 {
-                print("pieza \(piece.tag) está en \(piece.center)")
+                //print("pieza \(piece.tag) está en \(piece.center)")
                 currentCenters.append(piece.center)
             }
         }
@@ -187,29 +192,15 @@ class Player: UIViewController {
                 }
             }
         }
-        
+        //If the sort is correct, show an alert
         if win {
-            print("jijijiji")
             let alert = UIAlertController(title: "YOU WIN!!", message: "You're sooo smart!", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "^_^", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-        } else {
-            print("-----")
         }
     }
-    /*
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("FIIIIIIIIIIIIII")
-    }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("mooooove")
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("cannncel")
-    }
- */
+ 
     //****************************************************************
     // NAVIGATION
     //****************************************************************
