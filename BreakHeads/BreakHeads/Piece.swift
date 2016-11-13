@@ -111,12 +111,14 @@ class Piece: UIView {
     //Check if there are an other Piece in this position --------------
     func takenPlace(_ futureCenter: CGPoint) -> Bool {
         var canMove = false
+        let screenSize: CGRect = UIScreen.main.bounds
+        
         for piece in pieces_array {
             //print("Nuevo: \(futureCenter) - Lugar: \(piece.center)")
             if futureCenter == piece.center {
                 canMove = false //true  to test
                 break
-            } else if futureCenter != piece.center {
+            } else if futureCenter != piece.center && (futureCenter.x > 0 && futureCenter.x < screenSize.width) {
                 canMove = true
             }
         }
