@@ -15,11 +15,12 @@ class Home: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         for btn in levelBtns {
-            let blur = UIVisualEffectView(effect: UIBlurEffect(style:
-                UIBlurEffectStyle.light))
-            blur.frame = btn.bounds
+            btn.frame.size.width = UIScreen.main.bounds.width //220
+            btn.frame.size.height = 49
+            let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+            blur.frame = btn.frame
             blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
             btn.insertSubview(blur, at: 0)
         }
