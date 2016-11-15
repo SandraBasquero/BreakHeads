@@ -32,14 +32,13 @@ class Player: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillContentPieces()
+        fillContentPieces(image: preparedPuzzleImage())
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     //****************************************************************
@@ -49,7 +48,7 @@ class Player: UIViewController {
     //-----------------------------------------------------
     //Render pieces
     //-----------------------------------------------------
-    func fillContentPieces() {
+    func fillContentPieces(image:UIImage) {
         var pointX:CGFloat = 0
         var pointY:CGFloat = 0
         var counter = 1
@@ -58,13 +57,17 @@ class Player: UIViewController {
         while pointY + pieceSize <= (screenSize.height-60) {  //TODO: replace 60!
             //Filling each row with Pieces
             for _ in 1...numOfPiecesInRow {
+                //Crop the full image
+                let imageCg = image.cgImage?.cropping(to: CGRect(x: pointX, y: pointY, width: pieceSize, height: pieceSize))
+                let crop:UIImage = UIImage.init(cgImage: imageCg!)
+                //Build each piece
                 let newPiece = Piece(frame: CGRect(x: pointX, y: pointY, width: pieceSize, height: pieceSize))
                 newPiece.tag = counter
                 counter = counter+1
                 self.contentPieces.addSubview(newPiece)
                 piecesArray.append(newPiece)
                 correctCenters.append(newPiece.center)
-                fillingEachPiece(newPiece)
+                fillingEachPiece(newPiece, image: crop)
                 pointX = pointX + pieceSize
                 tempWidth = tempWidth + pieceSize
                 //Reset values in each new row
@@ -133,9 +136,12 @@ class Player: UIViewController {
     //-----------------------------------------------------
     //In each piece, its tag number
     //-----------------------------------------------------
-    func fillingEachPiece(_ piece:UIView) {
+    func fillingEachPiece(_ piece:UIView, image:UIImage) {
         let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: piece.frame.size.width, height: piece.frame.size.height))
-        labelText.backgroundColor = UIColor.orange
+        //labelText.backgroundColor = UIColor.orange
+        
+        piece.addSubview(UIImageView(image: image))
+        
         labelText.text = String(piece.tag)
         labelText.textAlignment = NSTextAlignment.center
         piece.addSubview(labelText)
@@ -214,6 +220,48 @@ class Player: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    //****************************************************************
+    // MARK: - UTILS
+    //****************************************************************
+    
+    //-----------------------------------------------------
+    //Rotate an image according with the given degrees
+    //-----------------------------------------------------
+    func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
+        //Calculate the size of the rotated view's containing box for our drawing space
+        let rotatedViewBox: UIView = UIView(frame: CGRect(x:0, y:0, width:oldImage.size.width, height:oldImage.size.height))
+        let t: CGAffineTransform = CGAffineTransform(rotationAngle: degrees * CGFloat(M_PI / 180))
+        rotatedViewBox.transform = t
+        let rotatedSize: CGSize = rotatedViewBox.frame.size
+        //Create the bitmap context
+        UIGraphicsBeginImageContext(rotatedSize)
+        let bitmap: CGContext = UIGraphicsGetCurrentContext()!
+        //Move the origin to the middle of the image so we will rotate and scale around the center.
+        bitmap.translateBy(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
+        //Rotate the image context
+        bitmap.rotate(by: (degrees * CGFloat(M_PI / 180)))
+        //Now, draw the rotated/scaled image into the context
+        bitmap.scaleBy(x: 1.0, y: -1.0)
+        bitmap.draw(oldImage.cgImage!, in: CGRect(x:-oldImage.size.width / 2, y:-oldImage.size.height / 2, width:oldImage.size.width, height:oldImage.size.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    //-----------------------------------------------------
+    //Prepare the puzzle image
+    //-----------------------------------------------------
+    func preparedPuzzleImage() -> UIImage {
+        var imagePuzzle = UIImage (named: "background1.png")
+        let imagePuzzleView = UIImageView (image: imagePuzzle)
+        
+        if imagePuzzleView.frame.size.width > imagePuzzleView.frame.size.height {
+            imagePuzzleView.transform = CGAffineTransform(rotationAngle: CGFloat(90 * M_PI/180))
+            imagePuzzle = imageRotatedByDegrees(oldImage: imagePuzzle!, deg: 90)
+        }
+        return imagePuzzle!
+    }
     
     
     //****************************************************************
