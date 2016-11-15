@@ -113,12 +113,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-6L-vkw">
-                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="7aX-sT-bsT"/>
                                     <constraint firstAttribute="height" constant="50" id="kJm-pa-aiZ"/>
                                 </constraints>
-                                <state key="normal" title="&lt;-"/>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="19"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="backHome:" destination="2yw-D8-4l7" eventType="touchUpInside" id="FUl-Rw-OGc"/>
                                 </connections>
@@ -132,16 +133,27 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlk-So-UzT">
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="1BX-1b-joK"/>
                                     <constraint firstAttribute="height" constant="50" id="Wgq-OR-E9O"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="19"/>
                                 <state key="normal" title="Mix">
-                                    <color key="titleColor" red="1" green="0.98796247307433016" blue="0.052999117197349177" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="mixPieces:" destination="2yw-D8-4l7" eventType="touchUpInside" id="Dj2-S2-GuK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyY-Xg-UMn">
+                                <frame key="frameInset" minX="85" width="77" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="19"/>
+                                <state key="normal" title="Num"/>
+                                <connections>
+                                    <action selector="showNumbers:" destination="2yw-D8-4l7" eventType="touchUpInside" id="wkg-6w-LJ9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -166,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3h-6z-aWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1413.5999999999999" y="385.45727136431788"/>
+            <point key="canvasLocation" x="1411.875" y="384.50704225352115"/>
         </scene>
     </scenes>
     <resources>

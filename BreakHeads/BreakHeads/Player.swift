@@ -29,6 +29,7 @@ class Player: UIViewController {
     var tempWidth:CGFloat = 0
     var correctCenters:[CGPoint] = []
     var mixed = false
+    var showTagNumbers = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,14 +135,14 @@ class Player: UIViewController {
     }
 
     //-----------------------------------------------------
-    //In each piece, its tag number
+    //In each piece, its tag number and a cropped image
     //-----------------------------------------------------
     func fillingEachPiece(_ piece:UIView, image:UIImage) {
-        let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: piece.frame.size.width, height: piece.frame.size.height))
-        //labelText.backgroundColor = UIColor.orange
-        
         piece.addSubview(UIImageView(image: image))
         
+        let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: piece.frame.size.width, height: piece.frame.size.height))
+        //labelText.backgroundColor = UIColor.orange
+        labelText.textColor = UIColor.clear
         labelText.text = String(piece.tag)
         labelText.textAlignment = NSTextAlignment.center
         piece.addSubview(labelText)
@@ -263,6 +264,38 @@ class Player: UIViewController {
         return imagePuzzle!
     }
     
+    //-----------------------------------------------------
+    //Show or hide the number in each piece  TODO: mejorar y limpiar método
+    //-----------------------------------------------------
+    @IBAction func showNumbers(_ sender: AnyObject) {
+        showTagNumbers = showTagNumbers ? false : true
+        print("Show numbers: \(showTagNumbers)")
+        
+        if showTagNumbers {
+            for piece in piecesArray {
+                if piece.tag != 0 {
+                    for label:UIView in piece.subviews {
+                        if label.isKind(of: UILabel.self) {
+                            let myLab = label as! UILabel
+                            myLab.textColor = UIColor.white
+                        }
+                    }
+                    
+                }
+            }
+        } else {
+            for piece in piecesArray {
+                if piece.tag != 0 {
+                    for label:UIView in piece.subviews {
+                        if label.isKind(of: UILabel.self) {
+                            let myLab = label as! UILabel
+                            myLab.textColor = UIColor.clear
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     //****************************************************************
     // MARK: - ALERT MESSAGES
