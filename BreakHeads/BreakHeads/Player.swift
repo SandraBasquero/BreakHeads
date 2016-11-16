@@ -271,7 +271,14 @@ class Player: UIViewController {
     //Prepare the puzzle image
     //-----------------------------------------------------
     func preparedPuzzleImage() -> UIImage {
-        var imagePuzzle = UIImage (named: "photo-1.jpg")
+        var imagePuzzle:UIImage?
+        print(Constants.sharer.imagePuzzleSelected)
+        if Constants.sharer.imagePuzzleSelected.size.width == 0.0 {
+            imagePuzzle = UIImage (named: "photo-1.png") //Default image to play
+        } else {
+             imagePuzzle = Constants.sharer.imagePuzzleSelected
+        }
+        
         let imagePuzzleView = UIImageView (image: imagePuzzle)
         
         if imagePuzzleView.frame.size.width > imagePuzzleView.frame.size.height {

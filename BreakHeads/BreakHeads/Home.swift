@@ -69,7 +69,7 @@ class Home: UIViewController {
     
 
     @IBAction func showImagesPopup(_ sender: AnyObject) {
-        navigationController?.pushViewController(popup, animated: true)
+        navigationController?.pushViewController(popup, animated: false)
     }
     
 }
