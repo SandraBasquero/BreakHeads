@@ -223,11 +223,11 @@ class Player: UIViewController {
     
     
     //****************************************************************
-    // MARK: - UTILS
+    // MARK: - PUZZLE IMAGES
     //****************************************************************
     
     //-----------------------------------------------------
-    //Rotate an image according with the given degrees
+    //Rotate an image according with given degrees
     //-----------------------------------------------------
     func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
         //Calculate the size of the rotated view's containing box for our drawing space
@@ -251,16 +251,36 @@ class Player: UIViewController {
     }
     
     //-----------------------------------------------------
+    //Resize the puzzle image keeping aspect ratio
+    //-----------------------------------------------------
+    func resizeImage(image:UIImage, toWidth:CGFloat) -> UIImage {
+        let oldWidth = image.size.width
+        let scaleFactor = toWidth/oldWidth
+        
+        let newHeight = image.size.height * scaleFactor
+        let newWidth = oldWidth * scaleFactor
+        
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x:0, y:0 ,width:newWidth, height:newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
+    //-----------------------------------------------------
     //Prepare the puzzle image
     //-----------------------------------------------------
     func preparedPuzzleImage() -> UIImage {
-        var imagePuzzle = UIImage (named: "background1.png")
+        var imagePuzzle = UIImage (named: "photo-1.jpg")
         let imagePuzzleView = UIImageView (image: imagePuzzle)
         
         if imagePuzzleView.frame.size.width > imagePuzzleView.frame.size.height {
             imagePuzzleView.transform = CGAffineTransform(rotationAngle: CGFloat(90 * M_PI/180))
             imagePuzzle = imageRotatedByDegrees(oldImage: imagePuzzle!, deg: 90)
         }
+        
+        imagePuzzle = resizeImage(image: imagePuzzle!, toWidth: screenSize.width)
+        
         return imagePuzzle!
     }
     

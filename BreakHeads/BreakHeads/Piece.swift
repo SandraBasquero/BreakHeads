@@ -20,8 +20,8 @@ class Piece: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.purple
-        self.layer.borderWidth = 0.5
+        self.backgroundColor = UIColor.clear
+        self.layer.borderWidth = 0.6
         self.layer.borderColor = UIColor.black.cgColor
         fourDirectionsGesture()
     }
