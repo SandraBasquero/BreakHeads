@@ -53,7 +53,7 @@ class PopupImagesVC: UIViewController {
     func fillBtns(btn:UIButton) {
         var imagePuzzle = UIImage (named: "photo-\(btn.tag).png")
          self.imagesScroll.frame = UIScreen.main.bounds
-         imagePuzzle = resizeImage(image: imagePuzzle!, toWidth: (self.imagesScroll.frame.width/2)-10)
+         imagePuzzle = Constants.sharer.resizeImage(image: imagePuzzle!, toWidth: (self.imagesScroll.frame.width/2)-10)
          //Crop the full image
          let imageCg = imagePuzzle?.cgImage?.cropping(to: CGRect(x: 0, y: 0, width: (self.imagesScroll.frame.width/2)-10, height: (self.imagesScroll.frame.width/2)+10))
          let crop:UIImage = UIImage.init(cgImage: imageCg!)
@@ -67,23 +67,7 @@ class PopupImagesVC: UIViewController {
         imagesScroll.contentSize.height = yPoint
     }
     
-    //-----------------------------------------------------
-    //Resize image
-    //-----------------------------------------------------
-    func resizeImage(image:UIImage, toWidth:CGFloat) -> UIImage {
-        let oldWidth = image.size.width
-        let scaleFactor = toWidth/oldWidth
-        
-        let newHeight = image.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
-        
-        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        image.draw(in: CGRect(x:0, y:0 ,width:newWidth, height:newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
-
+    
     //-----------------------------------------------------
     //Navigation
     //-----------------------------------------------------

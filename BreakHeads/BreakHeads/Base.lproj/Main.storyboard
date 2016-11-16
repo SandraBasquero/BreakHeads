@@ -168,7 +168,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UJw-Vb-tu6"/>
-                                    <constraint firstAttribute="width" constant="77" id="yJx-Ac-lJD"/>
+                                    <constraint firstAttribute="width" constant="73" id="yJx-Ac-lJD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="19"/>
                                 <state key="normal" title="Hint">
@@ -178,13 +178,29 @@
                                     <action selector="showNumbers:" destination="2yw-D8-4l7" eventType="touchUpInside" id="wkg-6w-LJ9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzg-S5-TFP">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="X52-F0-O5O"/>
+                                    <constraint firstAttribute="height" constant="50" id="dIC-fb-fRe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="19"/>
+                                <state key="normal" title="Goal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFullImage:" destination="2yw-D8-4l7" eventType="touchUpInside" id="e3B-1w-kbN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hlk-So-UzT" firstAttribute="top" secondItem="IJR-Ng-a8A" secondAttribute="bottom" id="18X-D4-HGX"/>
                             <constraint firstAttribute="trailing" secondItem="6BW-7x-N6d" secondAttribute="trailing" id="5MJ-SP-nns"/>
                             <constraint firstItem="6BW-7x-N6d" firstAttribute="leading" secondItem="XWf-5f-VrI" secondAttribute="leading" id="5XB-Yt-gdv"/>
+                            <constraint firstItem="Tzg-S5-TFP" firstAttribute="top" secondItem="IJR-Ng-a8A" secondAttribute="bottom" id="6kJ-jC-9Jq"/>
                             <constraint firstAttribute="trailing" secondItem="hlk-So-UzT" secondAttribute="trailing" id="D1s-UV-gx9"/>
+                            <constraint firstItem="hlk-So-UzT" firstAttribute="leading" secondItem="Tzg-S5-TFP" secondAttribute="trailing" constant="2" id="Hsf-Gp-2wG"/>
                             <constraint firstItem="6BW-7x-N6d" firstAttribute="top" secondItem="oFb-6L-vkw" secondAttribute="bottom" constant="10" id="L5a-po-nvg"/>
                             <constraint firstItem="oFb-6L-vkw" firstAttribute="top" secondItem="IJR-Ng-a8A" secondAttribute="bottom" id="TGP-4H-hso"/>
                             <constraint firstAttribute="bottom" secondItem="6BW-7x-N6d" secondAttribute="bottom" id="X6z-ea-UfW"/>

@@ -20,6 +20,8 @@
 		956F5FEF1DDC938700A75752 /* photo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 956F5FED1DDC938700A75752 /* photo-2.png */; };
 		956F5FF01DDC938700A75752 /* photo-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 956F5FEE1DDC938700A75752 /* photo-3.png */; };
 		956F5FF61DDC97B000A75752 /* photo-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 956F5FF51DDC97B000A75752 /* photo-1.png */; };
+		956F5FF91DDCB46C00A75752 /* PopupFullImageCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F5FF71DDCB46C00A75752 /* PopupFullImageCV.swift */; };
+		956F5FFA1DDCB46C00A75752 /* PopupFullImageCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956F5FF81DDCB46C00A75752 /* PopupFullImageCV.xib */; };
 		B69D32501DD8DDB300104F45 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = B69D324F1DD8DDB300104F45 /* background2.png */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		956F5FED1DDC938700A75752 /* photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-2.png"; sourceTree = "<group>"; };
 		956F5FEE1DDC938700A75752 /* photo-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-3.png"; sourceTree = "<group>"; };
 		956F5FF51DDC97B000A75752 /* photo-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-1.png"; sourceTree = "<group>"; };
+		956F5FF71DDCB46C00A75752 /* PopupFullImageCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupFullImageCV.swift; path = BreakHeads/PopupFullImageCV.swift; sourceTree = SOURCE_ROOT; };
+		956F5FF81DDCB46C00A75752 /* PopupFullImageCV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopupFullImageCV.xib; path = BreakHeads/PopupFullImageCV.xib; sourceTree = SOURCE_ROOT; };
 		B69D324F1DD8DDB300104F45 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +84,8 @@
 				955D44361DB8EC43007E016C /* Piece.swift */,
 				956F5FE91DDC64C200A75752 /* PopupImagesVC.swift */,
 				956F5FEA1DDC64C200A75752 /* PopupImagesVC.xib */,
+				956F5FF71DDCB46C00A75752 /* PopupFullImageCV.swift */,
+				956F5FF81DDCB46C00A75752 /* PopupFullImageCV.xib */,
 				955D44241DB8D8AB007E016C /* Main.storyboard */,
 				955D44271DB8D8AB007E016C /* Assets.xcassets */,
 				955D44291DB8D8AB007E016C /* LaunchScreen.storyboard */,
@@ -163,6 +169,7 @@
 				955D442B1DB8D8AB007E016C /* LaunchScreen.storyboard in Resources */,
 				955D44281DB8D8AB007E016C /* Assets.xcassets in Resources */,
 				956F5FF61DDC97B000A75752 /* photo-1.png in Resources */,
+				956F5FFA1DDCB46C00A75752 /* PopupFullImageCV.xib in Resources */,
 				B69D32501DD8DDB300104F45 /* background2.png in Resources */,
 				955D44261DB8D8AB007E016C /* Main.storyboard in Resources */,
 				956F5FEC1DDC64C200A75752 /* PopupImagesVC.xib in Resources */,
@@ -184,6 +191,7 @@
 				956F5FEB1DDC64C200A75752 /* PopupImagesVC.swift in Sources */,
 				955D44211DB8D8AB007E016C /* AppDelegate.swift in Sources */,
 				955D443B1DB925F9007E016C /* Constants.swift in Sources */,
+				956F5FF91DDCB46C00A75752 /* PopupFullImageCV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
