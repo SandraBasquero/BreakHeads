@@ -265,32 +265,18 @@ class Player: UIViewController {
     }
     
     //-----------------------------------------------------
-    //Show or hide the number in each piece  TODO: mejorar y limpiar método
+    //Show or hide the number in each piece  
     //-----------------------------------------------------
     @IBAction func showNumbers(_ sender: AnyObject) {
         showTagNumbers = showTagNumbers ? false : true
-        print("Show numbers: \(showTagNumbers)")
+        let colorNums = showTagNumbers ? UIColor.white : UIColor.clear
         
-        if showTagNumbers {
-            for piece in piecesArray {
-                if piece.tag != 0 {
-                    for label:UIView in piece.subviews {
-                        if label.isKind(of: UILabel.self) {
-                            let myLab = label as! UILabel
-                            myLab.textColor = UIColor.white
-                        }
-                    }
-                    
-                }
-            }
-        } else {
-            for piece in piecesArray {
-                if piece.tag != 0 {
-                    for label:UIView in piece.subviews {
-                        if label.isKind(of: UILabel.self) {
-                            let myLab = label as! UILabel
-                            myLab.textColor = UIColor.clear
-                        }
+        for piece in piecesArray {
+            if piece.tag != 0 {
+                for label:UIView in piece.subviews {
+                    if label.isKind(of: UILabel.self) {
+                        let lab = label as! UILabel
+                        lab.textColor = colorNums
                     }
                 }
             }
