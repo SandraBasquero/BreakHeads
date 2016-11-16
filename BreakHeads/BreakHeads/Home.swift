@@ -33,7 +33,7 @@ class Home: UIViewController {
     func buttonsStyles() {
         //Level buttons styles
         for btn in levelBtns {
-            btn.frame.size.width = UIScreen.main.bounds.width //220
+            btn.frame.size.width = 250 //UIScreen.main.bounds.width //220
             btn.frame.size.height = 49
             let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
             blur.frame = btn.frame

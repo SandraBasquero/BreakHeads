@@ -31,12 +31,12 @@
                     <blurEffect style="light"/>
                 </visualEffectView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iq6-OM-QRa"/>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uY5-to-wg0">
+                <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uY5-to-wg0">
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="EXe-ha-6ey"/>
-                        <constraint firstAttribute="width" constant="86" id="kx8-DY-WVf"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="21"/>
                     <state key="normal" title="Back">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -55,6 +55,7 @@
                 <constraint firstAttribute="bottom" secondItem="iq6-OM-QRa" secondAttribute="bottom" constant="10" id="Pc4-tT-mm5"/>
                 <constraint firstItem="yoa-DF-oAs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UME-PR-A0b"/>
                 <constraint firstAttribute="trailing" secondItem="yoa-DF-oAs" secondAttribute="trailing" id="ada-jI-Hny"/>
+                <constraint firstAttribute="trailing" secondItem="uY5-to-wg0" secondAttribute="trailing" id="fFy-Tk-UjJ"/>
                 <constraint firstItem="yoa-DF-oAs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jF5-k3-2Ff"/>
                 <constraint firstAttribute="bottom" secondItem="yoa-DF-oAs" secondAttribute="bottom" id="mkQ-nf-JmB"/>
                 <constraint firstItem="uY5-to-wg0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nKs-XS-S8g"/>

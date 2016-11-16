@@ -77,6 +77,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="AlS-Gk-5dR"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZM-EM-5eb">
                                 <constraints>
@@ -95,7 +98,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MvE-T5-won"/>
-                            <constraint firstItem="jqx-It-RLl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sv8-Ke-gh0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dZM-EM-5eb" secondAttribute="bottom" constant="-3" id="jkh-jy-cX9"/>
                             <constraint firstItem="dZM-EM-5eb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mT0-xQ-HnD"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="mph-B0-TgO"/>
