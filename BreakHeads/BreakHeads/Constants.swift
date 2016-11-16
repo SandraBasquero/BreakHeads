@@ -17,6 +17,7 @@ class Constants {
     static var sharer = Constants()
     fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
     var numOfPiecesPerRow:Int = 0
+    var imagePuzzleSelected = UIImage()
     
     
     func boxSize() -> CGFloat {

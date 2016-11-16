@@ -68,7 +68,7 @@ class Player: UIViewController {
                 self.contentPieces.addSubview(newPiece)
                 piecesArray.append(newPiece)
                 correctCenters.append(newPiece.center)
-                fillingEachPiece(newPiece, image: crop)
+                fillingEachPiece(piece: newPiece, image: crop)
                 pointX = pointX + pieceSize
                 tempWidth = tempWidth + pieceSize
                 //Reset values in each new row
@@ -137,7 +137,7 @@ class Player: UIViewController {
     //-----------------------------------------------------
     //In each piece, its tag number and a cropped image
     //-----------------------------------------------------
-    func fillingEachPiece(_ piece:UIView, image:UIImage) {
+    func fillingEachPiece(piece:UIView, image:UIImage) {
         piece.addSubview(UIImageView(image: image))
         
         let labelText = UILabel(frame: CGRect(x: 0, y: 0, width: piece.frame.size.width, height: piece.frame.size.height))

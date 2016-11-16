@@ -12,10 +12,26 @@ import UIKit
 class Home: UIViewController {
     
     @IBOutlet var levelBtns: [UIButton]!
+    let popup:PopupImagesVC = PopupImagesVC(nibName:"PopupImagesVC", bundle: nil)
+    @IBOutlet weak var imagePopupBtn: UIButton!
     
+    //-----------------------------------------------------
+    //Build
+    //-----------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        buttonsStyles()
+    }
+    
+    //****************************************************************
+    // MARK: - UTILS
+    //****************************************************************
+    
+    //-----------------------------------------------------
+    //Buttons styles
+    //-----------------------------------------------------
+    func buttonsStyles() {
+        //Level buttons styles
         for btn in levelBtns {
             btn.frame.size.width = UIScreen.main.bounds.width //220
             btn.frame.size.height = 49
@@ -25,14 +41,19 @@ class Home: UIViewController {
             btn.insertSubview(blur, at: 0)
         }
         
+        //Image popup button style
+        imagePopupBtn.frame.size.width = 250
+        imagePopupBtn.frame.size.height = 52
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+        blur.frame = imagePopupBtn.frame
+        blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
+        imagePopupBtn.insertSubview(blur, at: 0)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    //****************************************************************
+    // MARK: - NAVIGATION
+    //****************************************************************
     
-
     @IBAction func levelSelection(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -44,6 +65,11 @@ class Home: UIViewController {
         default:
             Constants.sharer.numOfPiecesPerRow = 0
         }
+    }
+    
+
+    @IBAction func showImagesPopup(_ sender: AnyObject) {
+        navigationController?.pushViewController(popup, animated: true)
     }
     
 }

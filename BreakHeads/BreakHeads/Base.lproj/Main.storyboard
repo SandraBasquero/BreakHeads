@@ -78,11 +78,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZM-EM-5eb">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jxw-eC-ayR"/>
+                                    <constraint firstAttribute="width" constant="250" id="kGg-r9-5p9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
+                                <state key="normal" title="Select an image">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showImagesPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fhU-dD-CJj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MvE-T5-won"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sv8-Ke-gh0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dZM-EM-5eb" secondAttribute="bottom" constant="-3" id="jkh-jy-cX9"/>
+                            <constraint firstItem="dZM-EM-5eb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mT0-xQ-HnD"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="mph-B0-TgO"/>
                         </constraints>
                     </view>
@@ -91,6 +106,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="imagePopupBtn" destination="dZM-EM-5eb" id="d8S-G6-JsK"/>
                         <outletCollection property="levelBtns" destination="aYD-yF-Yuo" collectionClass="NSMutableArray" id="SNl-fu-AeM"/>
                         <outletCollection property="levelBtns" destination="3UZ-VZ-ZAo" collectionClass="NSMutableArray" id="gjj-ca-wRd"/>
                         <outletCollection property="levelBtns" destination="P3j-t1-QK4" collectionClass="NSMutableArray" id="IZ2-Ag-ogQ"/>
@@ -98,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616.79999999999995" y="386.35682158920542"/>
+            <point key="canvasLocation" x="615" y="385.56338028169017"/>
         </scene>
         <!--Player-->
         <scene sceneID="Ah6-RC-Dcr">
@@ -155,7 +171,7 @@
                                     <constraint firstAttribute="width" constant="77" id="yJx-Ac-lJD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="19"/>
-                                <state key="normal" title="Help">
+                                <state key="normal" title="Hint">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
