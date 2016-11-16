@@ -41,12 +41,6 @@ class PopupImagesVC: UIViewController {
     }
 
     
-    func imageSelected(btn:UIButton) {
-        print("btn seleccionado \(btn.tag)")
-        Constants.sharer.imagePuzzleSelected = UIImage(named: "photo-\(btn.tag).png")!
-        navigationController?.popViewController(animated:true)
-    }
-    
     //-----------------------------------------------------
     //Prepare images for buttons
     //-----------------------------------------------------
@@ -75,4 +69,9 @@ class PopupImagesVC: UIViewController {
          navigationController?.popViewController(animated:false)
     }
 
+    func imageSelected(btn:UIButton) {
+        //print("btn seleccionado \(btn.tag)")
+        Constants.sharer.imagePuzzleSelected = UIImage(named: "photo-\(btn.tag).png")!
+        navigationController?.popViewController(animated:true)
+    }
 }

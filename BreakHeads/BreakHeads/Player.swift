@@ -227,32 +227,8 @@ class Player: UIViewController {
     }
     
     //****************************************************************
-    // MARK: - PUZZLE IMAGES
+    // MARK: - UTILS
     //****************************************************************
-    
-    //-----------------------------------------------------
-    //Prepare the puzzle image
-    //-----------------------------------------------------
-    /*func preparedPuzzleImage() -> UIImage {
-        var imagePuzzle:UIImage?
-        print(Constants.sharer.imagePuzzleSelected)
-        if Constants.sharer.imagePuzzleSelected.size.width == 0.0 {
-            imagePuzzle = UIImage (named: "photo-1.png") //Default image to play
-        } else {
-             imagePuzzle = Constants.sharer.imagePuzzleSelected
-        }
-        
-        let imagePuzzleView = UIImageView (image: imagePuzzle)
-        
-        if imagePuzzleView.frame.size.width > imagePuzzleView.frame.size.height {
-            imagePuzzleView.transform = CGAffineTransform(rotationAngle: CGFloat(90 * M_PI/180))
-            imagePuzzle = Constants.sharer.imageRotatedByDegrees(oldImage: imagePuzzle!, deg: 90)
-        }
-
-        imagePuzzle = Constants.sharer.resizeImage(image: imagePuzzle!, toWidth: screenSize.width)
-        
-        return imagePuzzle!
-    }*/
     
     //-----------------------------------------------------
     //Show or hide the number in each piece  
