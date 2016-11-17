@@ -137,7 +137,6 @@
 				TargetAttributes = {
 					955D441C1DB8D8AA007E016C = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = GKD62JWZ34;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -305,7 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = GKD62JWZ34;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BreakHeads/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbsapp.BreakHeads;
@@ -319,7 +318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = GKD62JWZ34;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BreakHeads/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sbsapp.BreakHeads;

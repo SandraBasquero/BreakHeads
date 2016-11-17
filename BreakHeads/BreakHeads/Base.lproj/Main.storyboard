@@ -41,6 +41,16 @@
                                 <frame key="frameInset" width="426" height="757"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oms-bK-4Ux">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l8W-Z2-rzO">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="paB-dZ-fqf"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="jqx-It-RLl">
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-t1-QK4">
@@ -84,23 +94,54 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZM-EM-5eb">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jxw-eC-ayR"/>
-                                    <constraint firstAttribute="width" constant="250" id="kGg-r9-5p9"/>
+                                    <constraint firstAttribute="width" constant="99" id="RTY-oM-CAo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
-                                <state key="normal" title="Select an image">
+                                <state key="normal" title="App">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="showImagesPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fhU-dD-CJj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbC-j0-FZC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VOu-vt-wQt"/>
+                                    <constraint firstAttribute="width" constant="99" id="bmo-YP-QLC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-SE-dk1">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kI4-LZ-0xd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
+                                <state key="normal" title="Gallery">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iUJ-OH-AaM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oms-bK-4Ux" secondAttribute="trailing" id="EaK-nT-bwB"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MvE-T5-won"/>
+                            <constraint firstItem="7Gr-SE-dk1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qj3-KC-bM9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oms-bK-4Ux" secondAttribute="bottom" constant="-3" id="bZc-cg-AQA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xbC-j0-FZC" secondAttribute="bottom" constant="-3" id="cFL-wq-nOe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dZM-EM-5eb" secondAttribute="bottom" constant="-3" id="jkh-jy-cX9"/>
-                            <constraint firstItem="dZM-EM-5eb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mT0-xQ-HnD"/>
+                            <constraint firstItem="7Gr-SE-dk1" firstAttribute="leading" secondItem="dZM-EM-5eb" secondAttribute="trailing" id="lm4-5b-p8E"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="mph-B0-TgO"/>
+                            <constraint firstAttribute="trailing" secondItem="xbC-j0-FZC" secondAttribute="trailing" id="nVQ-DK-rCk"/>
+                            <constraint firstItem="dZM-EM-5eb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rNe-2B-aHB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7Gr-SE-dk1" secondAttribute="bottom" constant="-3" id="s5s-d1-OFB"/>
+                            <constraint firstItem="oms-bK-4Ux" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s6m-kG-aK4"/>
+                            <constraint firstItem="xbC-j0-FZC" firstAttribute="leading" secondItem="7Gr-SE-dk1" secondAttribute="trailing" id="znL-kY-nRg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vQW-Ce-OVp"/>
@@ -108,10 +149,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imagePopupBtn" destination="dZM-EM-5eb" id="d8S-G6-JsK"/>
                         <outletCollection property="levelBtns" destination="aYD-yF-Yuo" collectionClass="NSMutableArray" id="SNl-fu-AeM"/>
                         <outletCollection property="levelBtns" destination="3UZ-VZ-ZAo" collectionClass="NSMutableArray" id="gjj-ca-wRd"/>
                         <outletCollection property="levelBtns" destination="P3j-t1-QK4" collectionClass="NSMutableArray" id="IZ2-Ag-ogQ"/>
+                        <outletCollection property="imagesPickersBtns" destination="dZM-EM-5eb" collectionClass="NSMutableArray" id="6Ek-49-vAA"/>
+                        <outletCollection property="imagesPickersBtns" destination="7Gr-SE-dk1" collectionClass="NSMutableArray" id="AZl-3x-X5K"/>
+                        <outletCollection property="imagesPickersBtns" destination="xbC-j0-FZC" collectionClass="NSMutableArray" id="dc4-dK-7bJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class Home: UIViewController {
+class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var levelBtns: [UIButton]!
     let popup:PopupImagesVC = PopupImagesVC(nibName:"PopupImagesVC", bundle: nil)
-    @IBOutlet weak var imagePopupBtn: UIButton!
+    @IBOutlet var imagesPickersBtns: [UIButton]!
+    let picker = UIImagePickerController()
     
     //-----------------------------------------------------
     //Build
@@ -21,7 +22,10 @@ class Home: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonsStyles()
+        picker.delegate = self
+        
     }
+    
     
     //****************************************************************
     // MARK: - UTILS
@@ -41,19 +45,23 @@ class Home: UIViewController {
             btn.insertSubview(blur, at: 0)
         }
         
-        //Image popup button style
-        imagePopupBtn.frame.size.width = 250
-        imagePopupBtn.frame.size.height = 52
-        let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
-        blur.frame = imagePopupBtn.frame
-        blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
-        imagePopupBtn.insertSubview(blur, at: 0)
+        /*for btn in imagesPickersBtns {
+            btn.frame.size.width = 99
+            btn.frame.size.height = 52
+            let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+            blur.frame = btn.frame
+            blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
+            btn.insertSubview(blur, at: 0)
+        }*/
     }
     
     //****************************************************************
     // MARK: - NAVIGATION
     //****************************************************************
     
+    //-----------------------------------------------------
+    //Select level and start the game
+    //-----------------------------------------------------
     @IBAction func levelSelection(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -67,10 +75,44 @@ class Home: UIViewController {
         }
     }
     
-
-    @IBAction func showImagesPopup(_ sender: AnyObject) {
+    //-----------------------------------------------------
+    //Open app images gallery popup
+    //-----------------------------------------------------
+    @IBAction func showImagesPopup(_ sender: UIBarButtonItem) {
         navigationController?.pushViewController(popup, animated: false)
     }
     
+    //-----------------------------------------------------
+    //Open the device picker images
+    //-----------------------------------------------------
+    @IBAction func showGallery(_ sender: UIBarButtonItem) {
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        picker.modalPresentationStyle = .popover
+        present(picker, animated: true, completion: nil)
+        picker.popoverPresentationController?.barButtonItem = sender
+    }
+    
+    //****************************************************************
+    // MARK: - DELEGATES
+    //****************************************************************
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let imagePuzzle = UIImageView()
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePuzzle.contentMode = .scaleAspectFit
+        imagePuzzle.image = chosenImage
+        dismiss(animated:true, completion: nil)
+        Constants.sharer.imagePuzzleSelected = imagePuzzle.image!
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }
+
+
+
 
