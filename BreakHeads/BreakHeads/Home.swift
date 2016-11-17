@@ -83,7 +83,7 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
     }
     
     //-----------------------------------------------------
-    //Open the device picker images
+    //Open device photos gallery
     //-----------------------------------------------------
     @IBAction func showGallery(_ sender: UIBarButtonItem) {
         picker.allowsEditing = false
@@ -93,6 +93,18 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
         present(picker, animated: true, completion: nil)
         picker.popoverPresentationController?.barButtonItem = sender
     }
+    
+    //-----------------------------------------------------
+    //Open camera
+    //-----------------------------------------------------
+    @IBAction func openCamera(_ sender: UIBarButtonItem) {
+        picker.allowsEditing = false
+        picker.sourceType = UIImagePickerControllerSourceType.camera
+        picker.cameraCaptureMode = .photo
+        picker.modalPresentationStyle = .fullScreen
+        present(picker,animated: true,completion: nil)
+    }
+    
     
     //****************************************************************
     // MARK: - DELEGATES

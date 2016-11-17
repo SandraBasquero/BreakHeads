@@ -22,8 +22,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a photo to play with</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Play with your photos!</string>
+	<string>Play with photos from your gallery</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
