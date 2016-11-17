@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9542DE341DDE24240056B8FA /* githubicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9542DE321DDE24240056B8FA /* githubicon.png */; };
+		9542DE351DDE24240056B8FA /* twittericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9542DE331DDE24240056B8FA /* twittericon.png */; };
 		955D44211DB8D8AB007E016C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955D44201DB8D8AB007E016C /* AppDelegate.swift */; };
 		955D44261DB8D8AB007E016C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955D44241DB8D8AB007E016C /* Main.storyboard */; };
 		955D44281DB8D8AB007E016C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955D44271DB8D8AB007E016C /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9542DE321DDE24240056B8FA /* githubicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = githubicon.png; sourceTree = "<group>"; };
+		9542DE331DDE24240056B8FA /* twittericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twittericon.png; sourceTree = "<group>"; };
 		955D441D1DB8D8AA007E016C /* BreakHeads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakHeads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		955D44201DB8D8AB007E016C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		955D44251DB8D8AB007E016C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		B69D324C1DD8DBEA00104F45 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9542DE321DDE24240056B8FA /* githubicon.png */,
+				9542DE331DDE24240056B8FA /* twittericon.png */,
 				956F5FF51DDC97B000A75752 /* photo-1.png */,
 				956F5FED1DDC938700A75752 /* photo-2.png */,
 				956F5FEE1DDC938700A75752 /* photo-3.png */,
@@ -166,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				955D442B1DB8D8AB007E016C /* LaunchScreen.storyboard in Resources */,
+				9542DE341DDE24240056B8FA /* githubicon.png in Resources */,
 				955D44281DB8D8AB007E016C /* Assets.xcassets in Resources */,
+				9542DE351DDE24240056B8FA /* twittericon.png in Resources */,
 				956F5FF61DDC97B000A75752 /* photo-1.png in Resources */,
 				956F5FFA1DDCB46C00A75752 /* PopupFullImageCV.xib in Resources */,
 				B69D32501DD8DDB300104F45 /* background2.png in Resources */,

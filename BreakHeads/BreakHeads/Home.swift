@@ -132,6 +132,21 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
             completion: nil)
     }
     
+    @IBAction func openBrowser(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            UIApplication.shared.openURL(NSURL(string: "https://twitter.com/sandrabasquero")! as URL)
+            
+            //NSWorkspace.shared().open(NSURL(string: "")! as URL)
+        case 2:
+            UIApplication.shared.openURL(NSURL(string: "https://github.com/SandraBasquero/BreakHeads")! as URL)
+        default:
+            UIApplication.shared.openURL(NSURL(string: "https://github.com/SandraBasquero/BreakHeads")! as URL)
+        }
+        
+    }
+    
+    
     //****************************************************************
     // MARK: - DELEGATES
     //****************************************************************

@@ -129,12 +129,40 @@
                                     <action selector="showGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iUJ-OH-AaM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCw-p4-7dZ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="S1l-zn-zd0"/>
+                                    <constraint firstAttribute="height" constant="31" id="WQo-5R-60B"/>
+                                </constraints>
+                                <state key="normal" image="githubicon.png">
+                                    <color key="titleColor" red="0.89322916666666663" green="0.89322916666666663" blue="0.89322916666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openBrowser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S78-as-ekm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjs-gZ-6Nr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="HGv-4r-DWi"/>
+                                    <constraint firstAttribute="width" constant="70" id="R3F-5f-ckE"/>
+                                </constraints>
+                                <state key="normal" image="twittericon.png">
+                                    <color key="titleColor" red="0.89322916666666663" green="0.89322916666666663" blue="0.89322916666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openBrowser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8N6-cc-4ij"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JCw-p4-7dZ" secondAttribute="trailing" constant="78" id="07E-tM-3pm"/>
                             <constraint firstAttribute="trailing" secondItem="oms-bK-4Ux" secondAttribute="trailing" id="EaK-nT-bwB"/>
+                            <constraint firstItem="Fjs-gZ-6Nr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="86" id="FfT-aa-Lmm"/>
+                            <constraint firstItem="Fjs-gZ-6Nr" firstAttribute="top" secondItem="jqx-It-RLl" secondAttribute="bottom" constant="25" id="KHv-e3-q6O"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MvE-T5-won"/>
                             <constraint firstItem="7Gr-SE-dk1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qj3-KC-bM9"/>
+                            <constraint firstItem="JCw-p4-7dZ" firstAttribute="top" secondItem="jqx-It-RLl" secondAttribute="bottom" constant="18" id="apq-Ly-6Aa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oms-bK-4Ux" secondAttribute="bottom" constant="-3" id="bZc-cg-AQA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xbC-j0-FZC" secondAttribute="bottom" constant="-3" id="cFL-wq-nOe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dZM-EM-5eb" secondAttribute="bottom" constant="-3" id="jkh-jy-cX9"/>
@@ -285,6 +313,8 @@
     </scenes>
     <resources>
         <image name="background2.png" width="426" height="757"/>
+        <image name="githubicon.png" width="22" height="20"/>
+        <image name="twittericon.png" width="29" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="H52-Ol-Boi"/>
