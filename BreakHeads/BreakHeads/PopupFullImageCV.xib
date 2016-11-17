@@ -30,7 +30,7 @@
                                             <constraint firstAttribute="height" constant="21" id="Tv3-M4-XUj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -42,7 +42,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="nMC-Fe-x7e"/>
                             </constraints>
-                            <blurEffect style="light"/>
+                            <blurEffect style="dark"/>
                         </visualEffectView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xO-ee-W9X">
                             <connections>

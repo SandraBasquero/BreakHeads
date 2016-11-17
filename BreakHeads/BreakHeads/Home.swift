@@ -86,6 +86,12 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
     //Open device photos gallery
     //-----------------------------------------------------
     @IBAction func showGallery(_ sender: UIBarButtonItem) {
+        picker.navigationBar.isTranslucent = true
+        picker.navigationBar.barTintColor = UIColor.black
+        picker.navigationBar.tintColor = UIColor.white // Cancel button ~ any UITabBarButton items
+        picker.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.white
+        ]
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary
         picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
