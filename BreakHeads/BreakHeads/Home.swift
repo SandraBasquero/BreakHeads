@@ -41,6 +41,7 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
             btn.frame.size.height = 49
             let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
             blur.frame = btn.frame
+            blur.frame.origin.y = 0 //?? ->to resolve strange thing in xcode 8.1
             blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
             btn.insertSubview(blur, at: 0)
         }

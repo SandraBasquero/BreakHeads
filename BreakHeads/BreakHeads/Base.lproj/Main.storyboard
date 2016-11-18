@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="laS-o2-RWk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="laS-o2-RWk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,16 +37,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="center" fixedFrame="YES" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Abl-HK-nXI">
-                                <frame key="frameInset" width="426" height="757"/>
+                                <rect key="frame" x="0.0" y="0.0" width="426" height="757"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oms-bK-4Ux">
+                                <rect key="frame" x="0.0" y="620" width="375" height="50"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l8W-Z2-rzO">
-                                    <frame key="frameInset"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
@@ -52,8 +56,10 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="jqx-It-RLl">
+                                <rect key="frame" x="63" y="100" width="250" height="189"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3j-t1-QK4">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="49"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="22"/>
                                         <state key="normal" title="Easy">
@@ -65,6 +71,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-VZ-ZAo">
+                                        <rect key="frame" x="0.0" y="70" width="250" height="49"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="22"/>
                                         <state key="normal" title="Medium">
@@ -76,6 +83,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYD-yF-Yuo">
+                                        <rect key="frame" x="0.0" y="140" width="250" height="49"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="22"/>
                                         <state key="normal" title="Hard">
@@ -92,6 +100,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZM-EM-5eb">
+                                <rect key="frame" x="0.0" y="620" width="99" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jxw-eC-ayR"/>
                                     <constraint firstAttribute="width" constant="99" id="RTY-oM-CAo"/>
@@ -105,6 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbC-j0-FZC">
+                                <rect key="frame" x="276" y="620" width="99" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VOu-vt-wQt"/>
                                     <constraint firstAttribute="width" constant="99" id="bmo-YP-QLC"/>
@@ -118,6 +128,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-SE-dk1">
+                                <rect key="frame" x="99" y="620" width="177" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kI4-LZ-0xd"/>
                                 </constraints>
@@ -130,6 +141,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCw-p4-7dZ">
+                                <rect key="frame" x="227" y="307" width="70" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="S1l-zn-zd0"/>
                                     <constraint firstAttribute="height" constant="31" id="WQo-5R-60B"/>
@@ -142,8 +154,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjs-gZ-6Nr">
+                                <rect key="frame" x="86" y="312" width="70" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="HGv-4r-DWi"/>
+                                    <constraint firstAttribute="height" constant="20" id="HGv-4r-DWi"/>
                                     <constraint firstAttribute="width" constant="70" id="R3F-5f-ckE"/>
                                 </constraints>
                                 <state key="normal" image="twittericon.png">
@@ -159,7 +172,7 @@
                             <constraint firstAttribute="trailing" secondItem="JCw-p4-7dZ" secondAttribute="trailing" constant="78" id="07E-tM-3pm"/>
                             <constraint firstAttribute="trailing" secondItem="oms-bK-4Ux" secondAttribute="trailing" id="EaK-nT-bwB"/>
                             <constraint firstItem="Fjs-gZ-6Nr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="86" id="FfT-aa-Lmm"/>
-                            <constraint firstItem="Fjs-gZ-6Nr" firstAttribute="top" secondItem="jqx-It-RLl" secondAttribute="bottom" constant="25" id="KHv-e3-q6O"/>
+                            <constraint firstItem="Fjs-gZ-6Nr" firstAttribute="top" secondItem="jqx-It-RLl" secondAttribute="bottom" constant="23" id="KHv-e3-q6O"/>
                             <constraint firstItem="jqx-It-RLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MvE-T5-won"/>
                             <constraint firstItem="7Gr-SE-dk1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qj3-KC-bM9"/>
                             <constraint firstItem="JCw-p4-7dZ" firstAttribute="top" secondItem="jqx-It-RLl" secondAttribute="bottom" constant="18" id="apq-Ly-6Aa"/>
@@ -201,21 +214,23 @@
                         <viewControllerLayoutGuide type="bottom" id="euH-Xz-fVr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XWf-5f-VrI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="N65-G7-DMb">
-                                <frame key="frameInset" width="426" height="757"/>
+                                <rect key="frame" x="0.0" y="0.0" width="426" height="757"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAE-IX-aFY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sZH-3x-eRH">
-                                    <frame key="frameInset"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-6L-vkw">
+                                <rect key="frame" x="0.0" y="0.0" width="84" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="7aX-sT-bsT"/>
@@ -230,13 +245,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6BW-7x-N6d">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doi-Vv-gAL">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                         <gestureRecognizers/>
                                     </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlk-So-UzT">
+                                <rect key="frame" x="291" y="0.0" width="84" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="1BX-1b-joK"/>
@@ -251,6 +269,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyY-Xg-UMn">
+                                <rect key="frame" x="85" y="0.0" width="73" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UJw-Vb-tu6"/>
@@ -265,6 +284,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzg-S5-TFP">
+                                <rect key="frame" x="216" y="0.0" width="73" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="X52-F0-O5O"/>
@@ -313,8 +333,8 @@
     </scenes>
     <resources>
         <image name="background2.png" width="426" height="757"/>
-        <image name="githubicon.png" width="22" height="20"/>
-        <image name="twittericon.png" width="29" height="20"/>
+        <image name="githubicon.png" width="20" height="20"/>
+        <image name="twittericon.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="H52-Ol-Boi"/>
