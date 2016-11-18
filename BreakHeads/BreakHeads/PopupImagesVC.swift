@@ -20,7 +20,7 @@ class PopupImagesVC: UIViewController {
         
         self.imagesScroll.frame = UIScreen.main.bounds
         //Render images/buttons in popup scrollview
-        for i in 1...3 {
+        for i in 1...numberOfImagesApp() {
              let imageBtn = UIButton.init(frame:  CGRect(x: xPoint, y: yPoint, width: (self.imagesScroll.frame.width/2)-10, height: (self.imagesScroll.frame.width/2)+15))
             imageBtn.tag = i
             imageBtn.isUserInteractionEnabled = true
@@ -61,6 +61,25 @@ class PopupImagesVC: UIViewController {
         imagesScroll.contentSize.height = yPoint
     }
     
+    //-----------------------------------------------------
+    //Count and return how many app photos there are in the directory
+    //-----------------------------------------------------
+    func numberOfImagesApp() -> Int {
+        var counter = 0
+        let docsPath = Bundle.main.resourcePath!;
+        let fileManager = FileManager.default
+        do {
+            let docsArray = try fileManager.contentsOfDirectory(atPath: docsPath)
+            for doc in docsArray {
+                if doc.hasPrefix("photo-") {
+                    counter = counter+1
+                }
+            }
+        } catch {
+            print("---> \(error)")
+        }
+        return counter
+    }
     
     //-----------------------------------------------------
     //Navigation
