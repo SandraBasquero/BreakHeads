@@ -45,15 +45,6 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
             blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
             btn.insertSubview(blur, at: 0)
         }
-        
-        /*for btn in imagesPickersBtns {
-            btn.frame.size.width = 99
-            btn.frame.size.height = 52
-            let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
-            blur.frame = btn.frame
-            blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
-            btn.insertSubview(blur, at: 0)
-        }*/
     }
     
     //****************************************************************
