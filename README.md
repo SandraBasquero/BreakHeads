@@ -7,3 +7,7 @@
 - By taking a photo with the camera device
 
 Help features are available at anytime, to help the user to solve the puzzle.
+
+## Some screenshots
+
+![alt tag] (https://cloud.githubusercontent.com/assets/14217634/22841198/efb16a64-efd0-11e6-9581-6aefaf02883a.png)
