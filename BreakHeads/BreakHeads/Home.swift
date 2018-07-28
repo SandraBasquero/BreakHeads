@@ -89,7 +89,6 @@ class Home: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
         picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         picker.modalPresentationStyle = .popover
         present(picker, animated: true, completion: nil)
-        picker.popoverPresentationController?.barButtonItem = sender
     }
     
     //-----------------------------------------------------
